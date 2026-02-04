@@ -193,15 +193,15 @@ static void MasterACK()
 		return;
 	}
 
-	char ACK[208] = {0};
+	char ACK[228] = {0};
 
 	ACK[0] = SOH;
 	memcpy(&ACK[1], &MSG_HEADER_FROM_SLAVE, 5);
 	ACK[6] = my_kind;
 	memcpy(&ACK[7], &self->write_buffer, sizeof(data_buffer_t));
-	ACK[207] = EOT;
+	ACK[227] = EOT;
 
-	HAL_UART_Transmit(&huart1, (uint8_t *)ACK, 208, 500);
+	HAL_UART_Transmit(&huart1, (uint8_t *)ACK, 228, 500);
 }
 
 char* get_transmit_buffer()

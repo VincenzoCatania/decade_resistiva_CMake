@@ -9,7 +9,7 @@
 #define EOT  0x04
 #define HEADER_LEN 5
 #define DATA_LEN_M 4
-#define DATA_LEN 200
+#define DATA_LEN 220
 
 
 typedef enum 

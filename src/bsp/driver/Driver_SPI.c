@@ -138,19 +138,7 @@ void init_spi_device(void)
         mc33996_send_cmd(CMD_RESET, 0x0000, ic);
         mc33996_send_cmd(CMD_ON_OFF_CONTROL, 0x0000, ic);
     }
-
-    for(int i = 0; i < 13; ++i)
-    {
-            for(int j = 0; j < 16; j++)
-            {
-                uint8_t index = (i*16)+j;
-
-                if(index <= 208)
-                {
-                    set_relay_on(index,TRUE, i);
-                }
-            }
-    }    
+  
 }
 
 /* ======================= RELAY CONTROL ======================= */
@@ -176,7 +164,9 @@ void set_relay_on(uint8_t wich_bit, boolean stat, uint8_t wich_ic)
 
     uint8_t buf[3];
     buf[0] = CMD_ON_OFF_CONTROL;
-    memcpy(&buf[1], &status_ic[wich_ic], 2);
+    buf[1] = (status_ic[wich_ic] >> 8) & 0xFF;
+    buf[2] = status_ic[wich_ic] & 0xFF;
+
 
     CS_Select(wich_ic);
     HAL_Delay(1);

@@ -1,2 +1,2 @@
-# decade_resistiva_CMake
-cmake project for decade resistiva 
+# 8x4_CMake
+board 8x4 with cmake build system

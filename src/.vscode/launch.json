@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "STM32 F0 DISCOVERY Debug PC Lavoro (Cortex-Debug)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "serverpath": "C:/Program Files/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/../build-8x4/8x4.elf",
+      "device": "",
+      "configFiles": 
+      [
+        "C:/Program Files/xpack-openocd-0.12.0-7/openocd/scripts/board/stm32f0discovery.cfg"
+      ],
+      "postStartSessionCommands": 
+      [
+        "monitor reset halt"
+      ],
+      "svdFile": "C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.2.0.202411061604/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32F0x1.svd",
+      "gdbPath": "C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/arm-none-eabi-gdb.exe",
+    },
+    {
+      "name": "STM32 F0 TARGET Debug PC Lavoro (Cortex-Debug)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "serverpath": "C:/Program Files/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/../build-8x4/8x4.elf",
+      "device": "",
+      "configFiles": [
+        "C:/Program Files/xpack-openocd-0.12.0-7/openocd/scripts/interface/stlink.cfg",
+        "C:/Program Files/xpack-openocd-0.12.0-7/openocd/scripts/target/stm32f0x.cfg"
+      ],
+      "postStartSessionCommands": 
+      [
+        "monitor reset halt"
+      ],
+      "svdFile": "C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.2.0.202411061604/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32F0x1.svd",
+      "gdbPath": "C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/arm-none-eabi-gdb.exe",
+    }
+  ]
+}
+
+
+
+

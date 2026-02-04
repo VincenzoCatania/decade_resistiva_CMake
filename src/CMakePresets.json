@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "stm32-f0-debug-pc-lavoro",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/../build-decade",
+      "toolchainFile": "toolchain-stm32-pc-lavoro.cmake",
+      "cacheVariables": {
+        "MCU_FLAGS": "-mcpu=cortex-m0 -mthumb -O0 -g3 -ffunction-sections -fdata-sections",
+        "LDSCRIPT": "${sourceDir}/STM32F051R8TX_FLASH.ld"
+      }
+    }
+  ]
+}

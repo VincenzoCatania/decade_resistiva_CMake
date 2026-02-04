@@ -1,0 +1,7 @@
+cmake --build ../build-SelfTest
+
+cmake --preset stm32-f767-debug
+
+rm -r -fo ../build-SelfTest    
+
+openocd -f board/st_nucleo_f7.cfg

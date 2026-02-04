@@ -8,9 +8,10 @@ static void deselect_all_ic(void);
 static void mc33996_send_cmd(uint8_t cmd, uint16_t data, uint8_t wich_ic);
 static void CS_Select(uint8_t which_ic);
 
-static boolean relay_old[52] = {0};
-static uint16_t status_ic[4] = {0};
-typedef struct {
+static boolean relay_old[208] = {0};
+static uint16_t status_ic[13] = {0};
+typedef struct 
+{
     GPIO_TypeDef *port;
     uint16_t pin;
 } CS_Pin_t;
@@ -157,7 +158,7 @@ void init_spi_device()
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
   HAL_Delay(10);
 
-  for (uint8_t ic = 0; ic < 4; ic++)
+  for (uint8_t ic = 0; ic < 13; ic++)
   {
     // 1. RESET software (pulizia registri SPI)
     mc33996_send_cmd(CMD_RESET, 0x0000, ic);

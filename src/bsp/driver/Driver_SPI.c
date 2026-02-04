@@ -138,6 +138,19 @@ void init_spi_device(void)
         mc33996_send_cmd(CMD_RESET, 0x0000, ic);
         mc33996_send_cmd(CMD_ON_OFF_CONTROL, 0x0000, ic);
     }
+
+    for(int i = 0; i < 13; ++i)
+    {
+            for(int j = 0; j < 16; j++)
+            {
+                uint8_t index = (i*16)+j;
+
+                if(index <= 208)
+                {
+                    set_relay_on(index,TRUE, i);
+                }
+            }
+    }    
 }
 
 /* ======================= RELAY CONTROL ======================= */

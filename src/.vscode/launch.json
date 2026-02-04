@@ -8,7 +8,7 @@
       "servertype": "openocd",
       "serverpath": "C:/Program Files/xpack-openocd-0.12.0-7/bin/openocd.exe",
       "cwd": "${workspaceFolder}",
-      "executable": "${workspaceFolder}/../build-8x4/8x4.elf",
+      "executable": "${workspaceFolder}/../build-decade/decade.elf",
       "device": "",
       "configFiles": 
       [
@@ -28,7 +28,7 @@
       "servertype": "openocd",
       "serverpath": "C:/Program Files/xpack-openocd-0.12.0-7/bin/openocd.exe",
       "cwd": "${workspaceFolder}",
-      "executable": "${workspaceFolder}/../build-8x4/8x4.elf",
+      "executable": "${workspaceFolder}/../build-decade/decade.elf",
       "device": "",
       "configFiles": [
         "C:/Program Files/xpack-openocd-0.12.0-7/openocd/scripts/interface/stlink.cfg",

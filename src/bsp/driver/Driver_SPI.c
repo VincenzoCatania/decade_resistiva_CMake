@@ -208,10 +208,6 @@ static void mc33996_send_cmd(uint8_t cmd, uint16_t data, uint8_t which_ic)
 
     CS_Select(which_ic);
     HAL_Delay(1);
-
     HAL_SPI_Transmit(&hspi2, buf, 3, 100);
-
-    HAL_Delay(1);
-    deselect_all_ic();
     HAL_Delay(1);
 }

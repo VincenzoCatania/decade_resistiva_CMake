@@ -32,12 +32,12 @@ typedef struct
 
 typedef struct  // do not modify order!!!!
 {
-	unsigned char relay_stat[32];
+	unsigned char relay_stat[208];
 }protocol_receive_data_t;
 
 typedef struct 
 {
-	unsigned char relay_stat[32];
+	unsigned char relay_stat[208];
 }protocol_transmit_data_t;
 
 typedef union 

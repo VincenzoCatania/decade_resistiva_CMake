@@ -17,13 +17,7 @@ static uint16_t status_ic[NUM_IC] = {0};
 
 /* ======================= CS MAP ======================= */
 
-typedef struct
-{
-    GPIO_TypeDef *port;
-    uint16_t pin;
-} CS_Pin_t;
-
-static CS_Pin_t cs_pins[NUM_IC] =
+static uint32_t cs_pins[NUM_IC][2] =
 {
     {GPIOC, GPIO_PIN_6},   // CS1
     {GPIOC, GPIO_PIN_7},   // CS2
@@ -183,7 +177,7 @@ void set_relay_on(uint8_t wich_bit, boolean stat, uint8_t wich_ic)
 static void deselect_all_ic(void)
 {
     for (uint8_t i = 0; i < NUM_IC; i++)
-        HAL_GPIO_WritePin(cs_pins[i].port, cs_pins[i].pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(cs_pins[i][0], cs_pins[i][1], GPIO_PIN_SET);
 }
 
 static void CS_Select(uint8_t which_ic)
@@ -191,8 +185,8 @@ static void CS_Select(uint8_t which_ic)
     deselect_all_ic();
 
     if (which_ic < NUM_IC)
-        HAL_GPIO_WritePin(cs_pins[which_ic].port,
-                          cs_pins[which_ic].pin,
+        HAL_GPIO_WritePin(cs_pins[which_ic][0],
+                          cs_pins[which_ic][1],
                           GPIO_PIN_RESET);
 }
 

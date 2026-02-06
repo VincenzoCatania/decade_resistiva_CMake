@@ -13,7 +13,7 @@ const char MSG_HEADER_FROM_SLAVE[HEADER_LEN] = {
 	'M',
 };
 
-static const char my_kind = 'C';  // B IS DECADE
+static const char my_kind = 'C';  // C IS DECADE
 static char byte = 0x0;
 
 static ring_buffer_t buf = {0};

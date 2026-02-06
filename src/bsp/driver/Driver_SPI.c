@@ -106,7 +106,7 @@ void init_spi_device(void)
     hspi2.Init.Mode              = SPI_MODE_MASTER;
     hspi2.Init.Direction         = SPI_DIRECTION_2LINES;
     hspi2.Init.DataSize          = SPI_DATASIZE_8BIT;
-    hspi2.Init.CLKPolarity       = SPI_POLARITY_LOW;
+    hspi2.Init.CLKPolarity       = SPI_POLARITY_HIGH;
     hspi2.Init.CLKPhase          = SPI_PHASE_1EDGE;
     hspi2.Init.NSS               = SPI_NSS_SOFT;
     hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
@@ -177,7 +177,7 @@ void set_relay_on(uint8_t wich_bit, boolean stat, uint8_t wich_ic)
 static void deselect_all_ic(void)
 {
     for (uint8_t i = 0; i < NUM_IC; i++)
-        HAL_GPIO_WritePin(cs_pins[i][0], cs_pins[i][1], GPIO_PIN_SET);
+        HAL_GPIO_WritePin((GPIO_TypeDef*)cs_pins[i][0], (uint16_t)cs_pins[i][1], GPIO_PIN_SET);
 }
 
 static void CS_Select(uint8_t which_ic)
@@ -185,8 +185,8 @@ static void CS_Select(uint8_t which_ic)
     deselect_all_ic();
 
     if (which_ic < NUM_IC)
-        HAL_GPIO_WritePin(cs_pins[which_ic][0],
-                          cs_pins[which_ic][1],
+        HAL_GPIO_WritePin((GPIO_TypeDef*)cs_pins[which_ic][0],
+                          (uint16_t)cs_pins[which_ic][1],
                           GPIO_PIN_RESET);
 }
 
